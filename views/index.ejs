@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+
+
+        <fieldset>
+        <p>Please sign up below</p>
+        <form action="/" method="post">
+            <input name="username" type="text" class="ghost-input" placeholder="Name" required>
+            <input name="email" type="text" class="ghost-input" placeholder="Email" required>
+            <input name="password" type="text" class="ghost-input" placeholder="Password" required>
+            
+            <input type="submit" class="ghost-button" value="Submit" formaction="/signUp">
+          </form>
+        </fieldset>
+        <fieldset>
+            <p>If you already have an account Please sign in below</p>
+            <form action="/" method="post">
+                <input name="username" type="text" class="ghost-input" placeholder="Name" required>
+                <input name="password" type="text" class="ghost-input" placeholder="Password" required>
+
+                <input type="submit" class="ghost-button" value="Submit" formaction="/signIn" onsubmit = "this.reset()">
+                <%=response%>
+            </form>
+        </fieldset>
+    
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    </body>
+</html>

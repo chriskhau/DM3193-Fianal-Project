@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Connect Four</title>
+    <link rel="stylesheet" type="text/css" href="/css/game.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div id="gameBoard">
+        
+    <img src="/images/board.png" id="board">
+    <div class = "col1" onclick="setCol1()"></div>
+    <div class = "col2" onclick="setCol2()"></div>
+    <div class = "col3" onclick="setCol3()"></div>
+    <div class = "col4" onclick="setCol4()"></div>
+    <div class = "col5" onclick="setCol5()"></div>
+    <div class = "col6" onclick="setCol6()"></div>
+    <div class = "col7" onclick="setCol7()"></div>
+    </div>
+</br>
+    <div class = "text">
+    <h1 id="player"></h1>
+    <h2 id="currentTurn"></h2>
+    <h1 id='winner'></h1>
+    </div>
+
+    <table>
+        <tr>
+            <td id = "c1r6"></td>
+            <td id = "c2r6"></td>
+            <td id = "c3r6"></td>
+            <td id = "c4r6"></td>
+            <td id = "c5r6"></td>
+            <td id = "c6r6"></td>
+            <td id = "c7r6"></td>
+        </tr>
+        <tr>
+            <td id = "c1r5"></td>
+            <td id = "c2r5"></td>
+            <td id = "c3r5"></td>
+            <td id = "c4r5"></td>
+            <td id = "c5r5"></td>
+            <td id = "c6r5"></td>
+            <td id = "c7r5"></td>
+        </tr>
+        <tr>
+            <td id = "c1r4"></td>
+            <td id = "c2r4"></td>
+            <td id = "c3r4"></td>
+            <td id = "c4r4"></td>
+            <td id = "c5r4"></td>
+            <td id = "c6r4"></td>
+            <td id = "c7r4"></td>
+        </tr>
+        <tr>
+            <td id = "c1r3"></td>
+            <td id = "c2r3"></td>
+            <td id = "c3r3"></td>
+            <td id = "c4r3"></td>
+            <td id = "c5r3"></td>
+            <td id = "c6r3"></td>
+            <td id = "c7r3"></td>
+        </tr>
+        <tr>
+            <td id = "c1r2"></td>
+            <td id = "c2r2"></td>
+            <td id = "c3r2"></td>
+            <td id = "c4r2"></td>
+            <td id = "c5r2"></td>
+            <td id = "c6r2"></td>
+            <td id = "c7r2"></td>
+        </tr>
+        <tr>
+            <td id = "c1r1"></td>
+            <td id = "c2r1"></td>
+            <td id = "c3r1"></td>
+            <td id = "c4r1"></td>
+            <td id = "c5r1"></td>
+            <td id = "c6r1"></td>
+            <td id = "c7r1"></td>
+        </tr>                    
+
+    </table>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+        var currentTurn = false;
+        var pieceLocation = '';
+        var currentPiece;
+        
+        socket.on('player', function(data){
+            $('#player').html(data.msg);
+        })
+        socket.on('playerTurn',function(data){
+            $('#currentTurn').html(data.msg);
+        })
+        socket.on('turnCounter',function(data){
+            var turn = data.currentTurn  
+        })
+        socket.on('winner',function(data){
+            $('#winner').html(data.msg);
+        })
+        socket.on('board',function(data){
+            pieceLocation = `c${data.col}r${data.row}`
+            console.log(pieceLocation);
+            //$(`#${pieceLocation}`).html(data.number)
+            if (data.image){
+                var img = document.createElement('img');
+                if (data.number == 1){
+                    img.src = '/images/red.png'
+                }
+                else{
+                    img.src = '/images/yellow.png'
+                }
+                img.style.bottom = `${80*(data.row-1)}px`
+                img.style.left = `${10+(90*(data.col-1))}px`
+                document.getElementById("gameBoard").appendChild(img);
+            }
+            
+
+        })
+
+        var setCol1 = function(){
+            socket.emit('set col 1')
+        }
+        var setCol2 = function(){
+            socket.emit('set col 2')
+        }
+        var setCol3 = function(){
+            socket.emit('set col 3')
+        }        
+        var setCol4 = function(){
+            socket.emit('set col 4')
+        }        
+        var setCol5 = function(){
+            socket.emit('set col 5')
+        }        
+        var setCol6 = function(){
+            socket.emit('set col 6')
+        }        
+        var setCol7 = function(){
+            socket.emit('set col 7')
+        }
+        
+        // var counter = 1;
+        // function creatediv(){
+        // var piece = document.createElement('img');
+        // piece.src = "/images/red.png"
+        // piece.setAttribute("class", 'piece');
+        // piece.id = `piece${counter}`
+        // counter++;
+        // document.getElementById("gameBoard").appendChild(piece);
+        // }
+        
+        
+    </script>
+  </body>
+</html>

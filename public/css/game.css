@@ -1,0 +1,107 @@
+img {
+    position: absolute;
+}
+
+#gameBoard{
+    position:relative;
+    display:inline-block;
+    width:640px;
+    height:480px;
+    
+}
+#board{
+    position:relative;
+    
+}
+.class{
+    position:absolute;
+}
+#piece{
+   
+
+}
+.col1{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+}
+.col1:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+
+.col2{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:90px;
+}
+.col2:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+
+.col3{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:180px;
+}
+.col3:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+
+.col4{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:270px;
+}
+.col4:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+.col5{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:360px;
+}
+.col5:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+.col6{
+    width:90px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:450px;
+}
+.col6:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+
+.col7{
+    width:100px;
+    height: 480px;
+    position: absolute;
+    top:0px;
+    left:540px;
+}
+.col7:hover{
+    background-color:grey;
+    opacity:0.3;
+}
+.text{
+    position: absolute;
+    left: 700px;
+    top: 0px;
+}
