@@ -1,6 +1,6 @@
 # Connect Four
 
-This app uses socket and nodejs to create a multiplayer connect four game.
+This app uses socket and nodejs to create a multiplayer Connect Four game.
 
 ## How to Run locally
 1. Clone repository
