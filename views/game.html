@@ -4,7 +4,9 @@
     <title>Connect Four</title>
     <link rel="stylesheet" type="text/css" href="/css/game.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+</head>
   <body>
 
     <div id="gameBoard">
@@ -116,8 +118,17 @@
                 else{
                     img.src = '/images/yellow.png'
                 }
-                img.style.bottom = `${80*(data.row-1)}px`
-                img.style.left = `${10+(90*(data.col-1))}px`
+                TweenLite.fromTo(img,2,
+                {
+                    bottom:`480px`,
+                    left: `${10+(90*(data.col-1))}px`
+                },
+                {
+                    bottom: `${80*(data.row-1)}px`,
+                    left: `${10+(90*(data.col-1))}px`
+                })
+                // img.style.bottom = `${80*(data.row-1)}px`
+                // img.style.left = `${10+(90*(data.col-1))}px`
                 document.getElementById("gameBoard").appendChild(img);
             }
             
